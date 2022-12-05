@@ -1,12 +1,18 @@
 import express from "express";
-import notFoundMiddleware from "./middleware/not-found.js";
 const app = express();
 
+
+import errorHandlerMiddleware from "./middleware/error-handler.js";
+import notFoundMiddleware from "./middleware/not-found.js";
+
+
 app.get('/', (req, res)=> {
+	throw new Error('error')
 	res.send('Welcome!')
 })
 
 app.use(notFoundMiddleware)
+app.use(errorHandlerMiddleware)
 
 const port = process.env.port || 5000;
 
