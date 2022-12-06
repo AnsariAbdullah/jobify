@@ -1,5 +1,7 @@
 import express from "express";
 const app = express();
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 import errorHandlerMiddleware from "./middleware/error-handler.js";
@@ -14,7 +16,7 @@ app.get('/', (req, res)=> {
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 
-const port = process.env.port || 5000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, ()=>{
 	console.log(`Server is listening at ${port}...`);
