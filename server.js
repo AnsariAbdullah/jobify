@@ -1,25 +1,25 @@
 import 'express-async-errors';
-import express from "express";
-const app = express();
+import express from 'express';
+const app = express()
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config()
 
-// db and authenticate user
-import connectDB from "./db/connect.js";
+// db and authenticateUser
+import connectDB from './db/connect.js';
 
-// routers
+// router
 import authRouter from './routes/authRoutes.js'
 import jobsRouter from './routes/jobsRoutes.js'
 
 // middleware
-import notFoundMiddleware from "./middleware/not-found.js";
-import errorHandlerMiddleware from "./middleware/error-handler.js";
+import notFoundMiddleware from './middleware/not-found.js';
+import errorHandlerMiddleware from './middleware/error-handler.js';
 
 app.use(express.json())
 
-app.get('/', (req, res)=> {
+app.get('/', (req, res) => {
 	// throw new Error('error')
-	res.send('Welcome!')
+	res.send('Welcome!');
 })
 
 app.use('/api/v1/auth', authRouter)
@@ -34,7 +34,7 @@ const port = process.env.PORT || 5000;
 const start = async () => {
 	try {
 		await connectDB(process.env.MONGO_URL);
-		app.listen(port, ()=>{
+		app.listen(port, () => {
 			console.log(`Server is listening at ${port}...`);
 		})
 	} catch (error) {

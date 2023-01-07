@@ -3,7 +3,7 @@ const createJob = async (req, res) => {
 }
 
 const getAllJobs = async (req, res) => {
-	res.send('get all job')
+	res.send('get all jobs')
 }
 
 const updateJob = async (req, res) => {
