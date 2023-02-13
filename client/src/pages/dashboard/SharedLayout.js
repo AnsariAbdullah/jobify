@@ -1,6 +1,15 @@
+import { Outlet, Link } from "react-router-dom";
+import Wrapper from '../../assets/wrappers/SharedLayout'
+
 const SharedLayout = () => {
 	return (
-		<h1>Shared Layout pages</h1>
+		<Wrapper>
+			<nav>
+				<Link to="add-jobs">Add job</Link>
+				<Link to="all-jobs">All jobs</Link>
+			</nav>
+			<Outlet />
+		</Wrapper>
 	);
 }
  

@@ -17,11 +17,12 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				{/* setting nested routes */}
-				<Route path='/'>
+				<Route path='/' element={<SharedLayout />}>
 					<Route path='add-jobs' element={<AddJob />} />
 					<Route path='all-jobs' element={<AllJobs />} />
 					<Route path='profile' element={<Profile />} />
-					<Route path='stats' element={<Stats />} />
+					{/* this will show the stats page when user navigates to '/' */}
+					<Route index element={<Stats />} />
 				</Route>
 				<Route path='/register' element={<Register />} />
 				<Route path='/landing' element={<Landing />} />
