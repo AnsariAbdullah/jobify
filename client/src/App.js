@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {
 	Error,
 	Register,
-	Landing
+	Landing,
+	ProtectedRoute
 } from './pages';
 import {
 	AddJob,
@@ -17,7 +18,12 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				{/* setting nested routes */}
-				<Route path='/' element={<SharedLayout />}>
+				<Route path='/' element={
+					// add protected route so user is navigated to public pages if not logged in
+					<ProtectedRoute>
+						<SharedLayout />
+					</ProtectedRoute>
+				}>
 					<Route path='add-jobs' element={<AddJob />} />
 					<Route path='all-jobs' element={<AllJobs />} />
 					<Route path='profile' element={<Profile />} />
