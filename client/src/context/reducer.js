@@ -9,7 +9,8 @@ import {
 	LOGIN_USER_ERROR,
 	SETUP_USER_BEGIN,
 	SETUP_USER_SUCCESS,
-	SETUP_USER_ERROR
+	SETUP_USER_ERROR,
+	TOGGLE_SIDEBAR
 } from "./action";
 
 const reducer = (state, action) => {
@@ -113,6 +114,13 @@ const reducer = (state, action) => {
 			showAlert: true,
 			alertType: 'danger',
 			alertText: action.payload.msg,
+		}
+	}
+
+	if(action.type === TOGGLE_SIDEBAR){
+		return {
+			...state,
+			showSidebar: !state.showSidebar
 		}
 	}
 
