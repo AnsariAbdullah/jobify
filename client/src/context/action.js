@@ -17,4 +17,7 @@ export const SETUP_USER_SUCCESS = 'SETUP_USER_SUCCESS';
 export const SETUP_USER_ERROR = 'LOGIN_USER_ERROR';
 
 // sidebar toggle
-export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR'
+export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
+
+// logout user
+export const LOGOUT_USER = 'LOGOUT_USER';

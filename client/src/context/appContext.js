@@ -13,7 +13,8 @@ import {
 	SETUP_USER_BEGIN,
 	SETUP_USER_SUCCESS,
 	SETUP_USER_ERROR,
-	TOGGLE_SIDEBAR
+	TOGGLE_SIDEBAR,
+	LOGOUT_USER
 } from "./action";
 
 const user = localStorage.getItem('user')
@@ -163,8 +164,23 @@ const AppProvider = ({ children }) => {
 		})
 	}
 
+	const logoutUser = () => {
+		dispatch({
+			type: LOGOUT_USER
+		})
+		removeUserFromLocalStorage()
+	}
+
 	return (
-		<AppContext.Provider value={{ ...state, displayAlert, registerUser, loginUser, setupUser, toggleSidebar }}>
+		<AppContext.Provider value={{ 
+			...state,
+			displayAlert,
+			registerUser,
+			loginUser,
+			setupUser,
+			toggleSidebar,
+			logoutUser
+		}}>
 			{children}
 		</AppContext.Provider>
 	)
