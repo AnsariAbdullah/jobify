@@ -18,7 +18,7 @@ const AddJob = () => {
 
 	const handleSubmit = e => {
 		e.preventDefault()
-		if(!position || !company || !jobLocation){
+		if (!position || !company || !jobLocation) {
 			displayAlert()
 			return
 		}
@@ -38,9 +38,9 @@ const AddJob = () => {
 				<h3>{isEditing ? 'edit job' : 'add job'}</h3>
 				{showAlert && <Alert />}
 
-        <div className='form-center'>
+				<div className='form-center'>
 					{/* position */}
-					<FormRow 
+					<FormRow
 						type='text'
 						name='position'
 						value={position}
@@ -48,7 +48,7 @@ const AddJob = () => {
 					/>
 
 					{/* company */}
-					<FormRow 
+					<FormRow
 						type='text'
 						name='company'
 						value={company}
@@ -56,7 +56,7 @@ const AddJob = () => {
 					/>
 
 					{/* location */}
-					<FormRow 
+					<FormRow
 						type='text'
 						labelText='job location'
 						name='jobLocation'
@@ -75,7 +75,7 @@ const AddJob = () => {
 							onChange={handleJobInput}
 							className='form-select'
 						>
-							{jobTypeOptions.map((itemValue, index)=>
+							{jobTypeOptions.map((itemValue, index) =>
 								<option key={index} value={itemValue}>
 									{itemValue}
 								</option>
@@ -97,10 +97,10 @@ const AddJob = () => {
 					</div>
 				</div>
 
-				
+
 			</form>
 		</Wrapper>
 	);
 }
- 
+
 export default AddJob;
