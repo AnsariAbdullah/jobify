@@ -3,5 +3,5 @@ const Stats = () => {
 		<h1>Stats pages</h1>
 	);
 }
- 
+
 export default Stats;
