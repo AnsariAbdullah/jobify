@@ -43,12 +43,18 @@ const updateJob = async (req, res) => {
 
 	// check permissions
 
-	const updateJob = await Job.findOneAndUpdate({ _id: jobId }, req.body, {
-		new: true,
-		runValidators: true
-	}) 
+	// const updateJob = await Job.findOneAndUpdate({ _id: jobId }, req.body, {
+	// 	new: true,
+	// 	runValidators: true
+	// }) 
 
-	res.status(StatusCodes.OK).json({ updateJob })
+	// below is the alternate solution to update job
+	job.position = position;
+	job.company = company;
+	await job.save()
+	res.status(StatusCodes.OK).json({ job })
+
+	// res.status(StatusCodes.OK).json({ updateJob })
 }
 
 const deleteJob = async (req, res) => {
