@@ -42,3 +42,6 @@ export const GET_JOBS_SUCCESS = 'GET_JOBS_SUCCESS';
 
 // edit jobs
 export const SET_EDIT_JOB = 'SET_EDIT_JOB';
+
+// delete job
+export const DELETE_JOB_BEGIN = 'DELETE_JOB_BEGIN';
