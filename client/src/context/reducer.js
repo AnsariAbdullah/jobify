@@ -241,10 +241,10 @@ const reducer = (state, action) => {
 		};
 	}
 
-	if(action.type === SET_EDIT_JOB){
+	if (action.type === SET_EDIT_JOB) {
 		const job = state.jobs.find((job) => job._id === action.payload.id)
 		const {
-			_id, 
+			_id,
 			position,
 			company,
 			jobLocation,
@@ -263,8 +263,8 @@ const reducer = (state, action) => {
 		}
 	}
 
-	if(action.type === DELETE_JOB_BEGIN){
-		return {...state, isLoading: true}	
+	if (action.type === DELETE_JOB_BEGIN) {
+		return { ...state, isLoading: true }
 	}
 
 	throw new Error(`no such action :${action.type}`)
