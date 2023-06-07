@@ -45,3 +45,8 @@ export const SET_EDIT_JOB = 'SET_EDIT_JOB';
 
 // delete job
 export const DELETE_JOB_BEGIN = 'DELETE_JOB_BEGIN';
+
+// create new job
+export const EDIT_JOB_BEGIN = 'EDIT_JOB_BEGIN';
+export const EDIT_JOB_SUCCESS = 'EDIT_JOB_SUCCESS';
+export const EDIT_JOB_ERROR = 'EDIT_JOB_ERROR';

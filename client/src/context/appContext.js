@@ -26,7 +26,10 @@ import {
 	GET_JOBS_BEGIN,
 	GET_JOBS_SUCCESS,
 	SET_EDIT_JOB,
-	DELETE_JOB_BEGIN
+	DELETE_JOB_BEGIN,
+	EDIT_JOB_BEGIN,
+	EDIT_JOB_SUCCESS,
+	EDIT_JOB_ERROR
 } from "./action";
 
 const user = localStorage.getItem('user')
@@ -312,8 +315,38 @@ const AppProvider = ({ children }) => {
 		dispatch({ type: SET_EDIT_JOB, payload: { id }})
 	}
 
-	const editJob = () => {
-		console.log('edit job');
+	const editJob = async() => {
+		dispatch({ type: EDIT_JOB_BEGIN })
+		try {
+			const { position, company, jobLocation, jobType, status } = state;
+			await authFetch.patch(`/jobs/${state.editJobId}`,{
+				position,
+				company,
+				jobLocation,
+				jobType,
+				status
+			})
+
+		// 	const { position, company, jobLocation, jobType, status } = state;
+
+    // await authFetch.patch(`/jobs/${state.editJobId}`, {
+    //   company,
+    //   position,
+    //   jobLocation,
+    //   jobType,
+    //   status,
+    // });
+
+			dispatch({ type: EDIT_JOB_SUCCESS })
+			dispatch({ type: CLEAR_VALUES })
+		} catch (error) {
+			if(error.response.status === 401) return
+			dispatch({
+				type: EDIT_JOB_ERROR,
+				payload: { msg: error.response.data.msg },
+			})
+		}
+		clearAlert()
 	}
 
 	const deleteJob = async (jobId) => {
