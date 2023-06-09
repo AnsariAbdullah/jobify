@@ -327,16 +327,6 @@ const AppProvider = ({ children }) => {
 				status
 			})
 
-		// 	const { position, company, jobLocation, jobType, status } = state;
-
-    // await authFetch.patch(`/jobs/${state.editJobId}`, {
-    //   company,
-    //   position,
-    //   jobLocation,
-    //   jobType,
-    //   status,
-    // });
-
 			dispatch({ type: EDIT_JOB_SUCCESS })
 			dispatch({ type: CLEAR_VALUES })
 		} catch (error) {
