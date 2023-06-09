@@ -291,7 +291,7 @@ const AppProvider = ({ children }) => {
 
 	const getJobs = async () => {
 		let url = `/jobs`
-	
+
 		dispatch({ type: GET_JOBS_BEGIN })
 		try {
 			const { data } = await authFetch(url)
@@ -312,14 +312,14 @@ const AppProvider = ({ children }) => {
 	}
 
 	const setEditJob = (id) => {
-		dispatch({ type: SET_EDIT_JOB, payload: { id }})
+		dispatch({ type: SET_EDIT_JOB, payload: { id } })
 	}
 
-	const editJob = async() => {
+	const editJob = async () => {
 		dispatch({ type: EDIT_JOB_BEGIN })
 		try {
 			const { position, company, jobLocation, jobType, status } = state;
-			await authFetch.patch(`/jobs/${state.editJobId}`,{
+			await authFetch.patch(`/jobs/${state.editJobId}`, {
 				position,
 				company,
 				jobLocation,
@@ -340,7 +340,7 @@ const AppProvider = ({ children }) => {
 			dispatch({ type: EDIT_JOB_SUCCESS })
 			dispatch({ type: CLEAR_VALUES })
 		} catch (error) {
-			if(error.response.status === 401) return
+			if (error.response.status === 401) return
 			dispatch({
 				type: EDIT_JOB_ERROR,
 				payload: { msg: error.response.data.msg },
