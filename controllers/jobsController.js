@@ -78,11 +78,11 @@ const deleteJob = async (req, res) => {
 
 const showStats = async (req, res) => {
 	let stats = await Job.aggregate([
-		{ $match: {createdBy: mongoose.Types.ObjectId(req.user.userId)}},
-		{ $group: {_id: '$status', count: {$sum: 1}}}
+		{ $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+		{ $group: { _id: '$status', count: { $sum: 1 } } }
 	])
 
-	stats = stats.reduce((acc, curr)=> {
+	stats = stats.reduce((acc, curr) => {
 		const { _id: title, count } = curr;
 		acc[title] = count
 		return acc;
@@ -95,7 +95,7 @@ const showStats = async (req, res) => {
 	}
 
 	let monthlyApplications = []
-	
+
 	res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications })
 }
 
