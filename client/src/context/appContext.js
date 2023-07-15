@@ -361,7 +361,7 @@ const AppProvider = ({ children }) => {
 			dispatch({
 				type: SHOW_STATS_SUCCESS,
 				payload: {
-					stats: data.stats,
+					stats: data.defaultStats,
 					monthlyApplications: data.monthlyApplications
 				}
 			})
