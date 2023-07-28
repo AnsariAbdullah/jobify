@@ -117,7 +117,7 @@ const showStats = async (req, res) => {
 			.year(year)
 			.format('MMM Y')
 
-		return {date, count}
+		return { date, count }
 	}).reverse()
 
 	res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications })
