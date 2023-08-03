@@ -25,16 +25,16 @@ const getAllJobs = async (req, res) => {
 		createdBy: req.user.userId
 	}
 
-	if(status !=='all'){
+	if (status !== 'all') {
 		queryObject.status = status;
 	}
 
-	if(jobType !== 'all'){
+	if (jobType !== 'all') {
 		queryObject.jobType = jobType;
 	}
 
-	let result =  Job.find(queryObject)
-	
+	let result = Job.find(queryObject)
+
 	const jobs = await result
 
 	res.status(StatusCodes.OK).json({
