@@ -61,7 +61,12 @@ const initialState = {
 	numOfPages: 1,
 	page: 1,
 	stats: {},
-	monthlyApplications: []
+	monthlyApplications: [],
+	search: '',
+	searchStatus: 'all',
+	searchType: 'all',
+	sort: 'latest',
+	sortOptions: ['latest', 'oldest', 'a-z', 'z-a']
 }
 
 const AppContext = React.createContext()
@@ -372,6 +377,11 @@ const AppProvider = ({ children }) => {
 		clearAlert()
 	}
 
+
+	const clearFilter = () =>  {
+		console.log('clear filer');
+	}
+
 	return (
 		<AppContext.Provider value={{
 			...state,
@@ -389,7 +399,8 @@ const AppProvider = ({ children }) => {
 			setEditJob,
 			deleteJob,
 			editJob,
-			showStats
+			showStats,
+			clearFilter
 		}}>
 			{children}
 		</AppContext.Provider>
