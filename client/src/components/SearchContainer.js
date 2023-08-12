@@ -49,7 +49,7 @@ const SearchContainer = () => {
 						handleChange={handleSearch}
 						list={['all', ...statusOptions]}
 					/>
-					{/* search by status */}
+					{/* search by type */}
 					<FormRowSelect
 						labelText='job type'
 						name='searchType'
