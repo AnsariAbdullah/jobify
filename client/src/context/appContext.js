@@ -378,7 +378,7 @@ const AppProvider = ({ children }) => {
 	}
 
 
-	const clearFilter = () =>  {
+	const clearFilters = () =>  {
 		console.log('clear filer');
 	}
 
@@ -400,7 +400,7 @@ const AppProvider = ({ children }) => {
 			deleteJob,
 			editJob,
 			showStats,
-			clearFilter
+			clearFilters
 		}}>
 			{children}
 		</AppContext.Provider>
