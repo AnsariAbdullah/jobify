@@ -303,8 +303,8 @@ const AppProvider = ({ children }) => {
 		const { search, searchStatus, searchType, sort } = state;
 		let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
 
-		if(search){
-			url = url+`&search=${search}`
+		if (search) {
+			url = url + `&search=${search}`
 		}
 
 		dispatch({ type: GET_JOBS_BEGIN })
@@ -384,7 +384,7 @@ const AppProvider = ({ children }) => {
 	}
 
 
-	const clearFilters = () =>  {
+	const clearFilters = () => {
 		dispatch({ type: CLEAR_FILTERS })
 	}
 
