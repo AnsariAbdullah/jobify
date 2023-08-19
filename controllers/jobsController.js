@@ -40,16 +40,16 @@ const getAllJobs = async (req, res) => {
 	let result = Job.find(queryObject)
 
 	// chain sort
-	if(sort === 'latest'){
+	if (sort === 'latest') {
 		result = result.sort('-createdAt')
 	}
-	if(sort === 'oldest'){
+	if (sort === 'oldest') {
 		result = result.sort('createdAt')
 	}
-	if(sort ==='a-z'){
+	if (sort === 'a-z') {
 		result = result.sort('position')
 	}
-	if(sort ==='z-a'){
+	if (sort === 'z-a') {
 		result = result.sort('-position')
 	}
 
