@@ -60,12 +60,14 @@ const getAllJobs = async (req, res) => {
 
 	result = result.skip(skip).limit(limit)
 
-	const jobs = await result
+	const jobs = await result;
+	const totalJobs = await Job.countDocuments(queryObject);
+	const numOfPages = Math.ceil(totalJobs / limit);
 
 	res.status(StatusCodes.OK).json({
 		jobs,
-		totalJobs: jobs.length,
-		numOfPages: 1
+		totalJobs,
+		numOfPages
 	})
 }
 
