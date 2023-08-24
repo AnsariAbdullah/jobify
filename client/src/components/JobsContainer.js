@@ -51,7 +51,7 @@ const JobsContainer = () => {
 				})}
 			</div>
 			{/* pagination */}
-			{numOfPages > 1 && <PageBtnContainer />}
+			{ numOfPages > 1 && <PageBtnContainer /> }
 		</Wrapper>
 	)
 }
