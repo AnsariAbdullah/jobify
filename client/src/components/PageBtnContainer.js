@@ -9,15 +9,13 @@ const PageBtnContainer = () => {
 		console.log('prev page');
 	}
 
-	const nextPage = ()  => {
+	const nextPage = () => {
 		console.log('next page');
 	}
 
-	const pages = Array.from({length: numOfPages}, (_, index) => {
-		return index+1;
+	const pages = Array.from({ length: numOfPages }, (_, index) => {
+		return index + 1;
 	})
-
-	console.log(pages);
 
 	return (
 		<Wrapper>
@@ -27,12 +25,12 @@ const PageBtnContainer = () => {
 			</button>
 
 			<div className="btn-container">
-				{pages.map((pageNumber) => 
+				{pages.map((pageNumber) =>
 					<button
 						type="button"
 						className={pageNumber === page ? 'pageBtn active' : 'pageBtn'}
 						key={pageNumber}
-						onClick={()=> console.log('change page number')}
+						onClick={() => console.log('change page number')}
 					>
 						{pageNumber}
 					</button>
@@ -47,5 +45,5 @@ const PageBtnContainer = () => {
 		</Wrapper>
 	);
 }
- 
+
 export default PageBtnContainer;
