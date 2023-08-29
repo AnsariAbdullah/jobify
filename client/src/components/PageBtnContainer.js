@@ -13,6 +13,12 @@ const PageBtnContainer = () => {
 		console.log('next page');
 	}
 
+	const pages = Array.from({length: numOfPages}, (_, index) => {
+		return index+1;
+	})
+
+	console.log(pages);
+
 	return (
 		<Wrapper>
 			<button className="prev-btn" onClick={prevPage}>
@@ -21,7 +27,16 @@ const PageBtnContainer = () => {
 			</button>
 
 			<div className="btn-container">
-				buttons
+				{pages.map((pageNumber) => 
+					<button
+						type="button"
+						className={pageNumber === page ? 'pageBtn active' : 'pageBtn'}
+						key={pageNumber}
+						onClick={()=> console.log('change page number')}
+					>
+						{pageNumber}
+					</button>
+				)}
 			</div>
 
 			<button className="next-btn" onClick={nextPage}>
