@@ -32,7 +32,8 @@ import {
 	EDIT_JOB_ERROR,
 	SHOW_STATS_BEGIN,
 	SHOW_STATS_SUCCESS,
-	CLEAR_FILTERS
+	CLEAR_FILTERS,
+	CHANGE_PAGE
 } from "./action";
 
 const user = localStorage.getItem('user')
@@ -388,6 +389,10 @@ const AppProvider = ({ children }) => {
 		dispatch({ type: CLEAR_FILTERS })
 	}
 
+	const changePage = (page) => {
+		dispatch({ type: CHANGE_PAGE, payload: { page } })
+	}
+
 	return (
 		<AppContext.Provider value={{
 			...state,
@@ -406,7 +411,8 @@ const AppProvider = ({ children }) => {
 			deleteJob,
 			editJob,
 			showStats,
-			clearFilters
+			clearFilters,
+			changePage
 		}}>
 			{children}
 		</AppContext.Provider>
