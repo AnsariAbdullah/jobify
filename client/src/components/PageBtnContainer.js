@@ -6,11 +6,23 @@ const PageBtnContainer = () => {
 	const { numOfPages, page, changePage } = useAppContext();
 
 	const prevPage = () => {
-		console.log('prev page');
+		let newPage = page-1;
+		if(newPage < 1){
+			// newPage = 1;
+			// alternate way
+			newPage = numOfPages;
+		}
+		changePage(newPage);
 	}
 
 	const nextPage = () => {
-		console.log('next page');
+		let newPage = page+1;
+		if(newPage > numOfPages){
+			// newPage = numOfPages;
+			// alternate way
+			newPage = 1;
+		}
+		changePage(newPage);
 	}
 
 	const pages = Array.from({ length: numOfPages }, (_, index) => {
