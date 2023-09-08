@@ -22,6 +22,7 @@ const JobsContainer = () => {
 	useEffect(() => {
 		getJobs();
 	}, [
+		page,
 		search,
 		searchStatus,
 		searchType,
