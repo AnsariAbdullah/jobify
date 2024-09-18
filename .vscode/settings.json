@@ -1,0 +1,33 @@
+{
+  "workbench.startupEditor": "welcomePage",
+  "update.mode": "none",
+  "extensions.autoUpdate": false,
+  "breadcrumbs.enabled": false,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "tabnine.experimentalAutoImports": true,
+  "extensions.autoCheckUpdates": false,
+  "workbench.sideBar.location": "left",
+  "diffEditor.wordWrap": "on",
+  "git.confirmSync": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.tabSize": 2,
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "window.zoomLevel": 0,
+  "workbench.editor.empty.hint": "hidden",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "reactSnippets.settings.importReactOnTop": true,
+  "prettier.singleQuote": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+}
