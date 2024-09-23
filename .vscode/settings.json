@@ -19,7 +19,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-  "window.zoomLevel": 0,
+  // "window.zoomLevel": 1,
   "workbench.editor.empty.hint": "hidden",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.formatOnPaste": true,
@@ -27,6 +27,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "reactSnippets.settings.importReactOnTop": true,
   "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   }
