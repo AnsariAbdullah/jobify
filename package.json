@@ -1,0 +1,21 @@
+{
+  "name": "jobify",
+  "version": "1.0.0",
+  "description": "[Jobify](https://jobify.live/)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnsariAbdullah/jobify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnsariAbdullah/jobify/issues"
+  },
+  "homepage": "https://github.com/AnsariAbdullah/jobify#readme"
+}
