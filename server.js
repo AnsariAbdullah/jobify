@@ -1,7 +1,18 @@
-import { value } from './test-named.js';
-import randomValue from './test-default.js';
+import express from "express";
+const app = express();
 
-console.log('server is working...');
+app.use(express.json());
 
-console.log(value);
-console.log(randomValue);
+app.get('/', (req, res) => {
+  res.send('Hello world');
+})
+
+app.post('/', (req, res) => {
+  console.log(req);
+
+  res.json({ message: 'data recieved', data: req.body })
+})
+
+app.listen(5100, () => {
+  console.log('serevr running...');
+})
