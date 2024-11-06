@@ -48,6 +48,7 @@ app.get('/api/v1/jobs/:id', (req, res) => {
   const { id } = req.params;
   const job = jobs.find((job) => job.id === id);
   if (!job) {
+    // throw new Error('no job with that ID') // if we use this we will trigger the error middleware
     return res.status(404).json({ msg: `no job with id ${id}` })
   }
   res.status(200).json({ job })
@@ -79,6 +80,17 @@ app.delete('/api/v1/jobs/:id', (req, res) => {
   const newJobs = jobs.filter((job) => job.id !== id)
   jobs = newJobs;
   res.status(200).json({ msg: 'Job deleted' });
+})
+
+// NOT FOUND
+app.use('*', (req, res) => {
+  res.status(404).json({ msg: 'not found' })
+})
+
+// ERROR MIDDLEWARE
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(500).json({ msg: 'something went wrong' })
 })
 
 const port = process.env.PORT || 4000;
