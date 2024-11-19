@@ -1,15 +1,16 @@
+import { StatusCodes } from 'http-status-codes';
 import Job from '../models/JobModel.js';
 
 export const getAllJobs = async (req, res) => {
   const jobs = await Job.find({});
-  res.status(200).json(jobs)
+  res.status(StatusCodes.OK).json(jobs)
 }
 
 export const createJob = async (req, res) => {
   // const { company, position } = req.body;
   // const job = await Job.create({ company, position });
   const job = await Job.create(req.body);
-  res.status(201).json(job);
+  res.status(StatusCodes.CREATED).json(job);
 }
 
 export const getJob = async (req, res) => {
@@ -19,7 +20,7 @@ export const getJob = async (req, res) => {
     // throw new Error('no job with that ID') // if we use this we will trigger the error middleware
     return res.status(404).json({ msg: `no job with id ${id}` })
   }
-  res.status(200).json({ job })
+  res.status(StatusCodes.OK).json({ job })
 }
 
 export const updateJob = async (req, res) => {
@@ -31,7 +32,7 @@ export const updateJob = async (req, res) => {
     return res.status(404).json({ msg: `no job with id ${id}` });
   }
 
-  res.status(200).json({ msg: 'Job modified', job: updatedJob })
+  res.status(StatusCodes.OK).json({ msg: 'Job modified', job: updatedJob })
 }
 
 export const deleteJob = async (req, res) => {
@@ -40,5 +41,5 @@ export const deleteJob = async (req, res) => {
   if (!removeJob) {
     return res.status(404).json({ msg: `no job with id ${id}` });
   }
-  res.status(200).json({ msg: 'Job deleted', job: removeJob });
+  res.status(StatusCodes.OK).json({ msg: 'Job deleted', job: removeJob });
 }
