@@ -5,6 +5,7 @@ import express from "express";
 const app = express();
 import morgan from "morgan";
 import mongoose from 'mongoose';
+import cookieParser from 'cookie-parser';
 
 // routers
 import jobRouter from './routes/jobRouter.js';
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
   res.send('Hello world');
