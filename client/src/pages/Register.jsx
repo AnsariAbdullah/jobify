@@ -4,7 +4,7 @@ import { Logo, FormRow } from '../components';
 import customFetch from '../utils/customFetch';
 import { toast } from 'react-toastify';
 
-export const actions = async ({ request }) => {
+export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   try {
