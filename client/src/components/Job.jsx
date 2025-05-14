@@ -36,7 +36,10 @@ function Job({
           <div className={`status ${jobStatus}`}>{jobStatus}</div>
         </div>
         <footer className='actions'>
-          <Link className='btn edit-btn'>Edit</Link>
+          {/* we can use '/dashboard/edit-job' but Link also supports relative path so we have used relative path approach instead */}
+          <Link to={`../edit-job/${_id}`} className='btn edit-btn'>
+            Edit
+          </Link>
           <Form>
             <button type='submit' className='btn delete-btn'>
               Delete
