@@ -29,6 +29,45 @@ const EditJob = () => {
   const { job } = useLoaderData();
   console.log(job);
 
-  return <div>EditJob</div>;
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
+
+  return (
+    <Wrapper>
+      <Form method='post' className='form'>
+        <h2 className='form-title'>edit job</h2>
+        <div className='form-center'>
+          <FormRow type='text' name='company' defaultValue={job.company} />
+          <FormRow type='text' name='position' defaultValue={job.position} />
+          <FormRow
+            type='text'
+            name='jobLocation'
+            labelText='job location'
+            defaultValue={job.jobLocation}
+          />
+          <FormRowSelect
+            name='jobStatus'
+            labelText='job status'
+            defaultValue={job.jobStatus}
+            list={Object.values(JOB_STATUS)}
+          />
+          <FormRowSelect
+            name='jobType'
+            labelText='job type'
+            defaultValue={job.jobType}
+            list={Object.values(JOB_TYPE)}
+          />
+
+          <button
+            type='submit'
+            className='btn btn-block form-btn'
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'subimitting...' : 'submit'}
+          </button>
+        </div>
+      </Form>
+    </Wrapper>
+  );
 };
 export default EditJob;
