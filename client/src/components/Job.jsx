@@ -17,7 +17,6 @@ function Job({
   createdAt,
   jobStatus,
 }) {
-  console.log(createdAt);
   const date = day(createdAt).format('MMM Do, YYYY');
   return (
     <Wrapper>
@@ -40,7 +39,7 @@ function Job({
           <Link to={`../edit-job/${_id}`} className='btn edit-btn'>
             Edit
           </Link>
-          <Form>
+          <Form method='post' action={`../delete-job/${_id}`}>
             <button type='submit' className='btn delete-btn'>
               Delete
             </button>
