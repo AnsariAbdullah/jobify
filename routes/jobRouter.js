@@ -6,7 +6,8 @@ import {
   createJob,
   getJob,
   updateJob,
-  deleteJob
+  deleteJob,
+  showStats
 } from '../controllers/jobController.js';
 import { validateJobInput, validateIdParam } from "../middleware/validationMiddleware.js";
 import { checkForTestUser } from "../middleware/authMiddleware.js";
@@ -16,7 +17,15 @@ import { checkForTestUser } from "../middleware/authMiddleware.js";
 // router.post('/', createJob);
 
 // this is another way which require less lines of code
-router.route('/').get(getAllJobs).post(checkForTestUser, validateJobInput, createJob);
+router
+  .route('/')
+  .get(getAllJobs)
+  .post(checkForTestUser, validateJobInput, createJob);
+
+router
+  .route('/stats')
+  .get(showStats);
+
 router
   .route('/:id')
   .get(validateIdParam, getJob)
