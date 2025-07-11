@@ -5,7 +5,11 @@ import day from 'dayjs';
 
 export const getAllJobs = async (req, res) => {
   console.log(req.user);
-  const jobs = await Job.find({ createdBy: req.user.userId });
+  console.log(req.query);
+  const jobs = await Job.find({
+    createdBy: req.user.userId,
+    position: req.query.search
+  });
   res.status(StatusCodes.OK).json({ jobs });
 }
 
