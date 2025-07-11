@@ -6,10 +6,18 @@ import day from 'dayjs';
 export const getAllJobs = async (req, res) => {
   console.log(req.user);
   console.log(req.query);
-  const jobs = await Job.find({
+
+  const { search } = req.query;
+
+  let queryObj = {
     createdBy: req.user.userId,
-    position: req.query.search
-  });
+  }
+
+  if (search) {
+    queryObj.position = search
+  }
+
+  const jobs = await Job.find(queryObj);
   res.status(StatusCodes.OK).json({ jobs });
 }
 
