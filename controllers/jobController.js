@@ -14,7 +14,10 @@ export const getAllJobs = async (req, res) => {
   }
 
   if (search) {
-    queryObj.position = search
+    queryObj.$or = [
+      { position: { $regex: search, $options: 'i' } },
+      { company: { $regex: search, $options: 'i' } },
+    ]
   }
 
   const jobs = await Job.find(queryObj);
